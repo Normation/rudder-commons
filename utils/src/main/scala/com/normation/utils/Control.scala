@@ -34,7 +34,7 @@ object Control {
    * Transform a TraversableOnce[Box] into a Box[Iterable]
    * note: I don't how to say T<:TravesableOnce , T[Box[U]] => Box[T[U]]
    */ 
-  implicit def boxSequence[U](seq:Seq[Box[U]]) : Box[Seq[U]] = {
+  def boxSequence[U](seq:Seq[Box[U]]) : Box[Seq[U]] = {
     val buf = scala.collection.mutable.Buffer[U]()
     seq.foreach {
       case Full(u) => buf += u
